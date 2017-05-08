@@ -20,9 +20,7 @@ build:
 requirements:
   build:
     - python
-    - pip
     - pypandoc
-    - py4j 0.10.4
     - setuptools
 
   run:
