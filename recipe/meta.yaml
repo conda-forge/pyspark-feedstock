@@ -8,7 +8,7 @@ package:
   version: {{ version }}
 
 source:
-  url: http://www.apache.org/dist/spark/spark-{{ version }}/spark-{{ version }}-bin-hadoop{{ hadoop_version }}.tgz
+  url: https:://www.apache.org/dist/spark/spark-{{ version }}/spark-{{ version }}-bin-hadoop{{ hadoop_version }}.tgz
   sha256: {{ sha256 }}
 
 build:
