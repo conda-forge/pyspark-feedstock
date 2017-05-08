@@ -1,7 +1,7 @@
 {% set name = "pyspark" %}
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 {% set hadoop_version = "2.7" %}
-{% set sha256 = "0834c775f38473f67cb122e0ec21074f800ced50c1ff1b9e37e222a0069dc5c7" %}
+{% set sha256 = "372ac4f73221c07696793101007a4f19e31566d1f0d9bd0e5205b6fb5b45bfc2" %}
 
 package:
   name: {{ name }}
@@ -10,8 +10,6 @@ package:
 source:
   url: http://www.apache.org/dist/spark/spark-{{ version }}/spark-{{ version }}-bin-hadoop{{ hadoop_version }}.tgz
   sha256: {{ sha256 }}
-  patches:
-    - setup.py.patch
 
 build:
   skip: True  # [py36]
