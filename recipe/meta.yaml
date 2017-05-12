@@ -10,14 +10,14 @@ package:
 source:
   url: http://d3kbcqa49mib13.cloudfront.net/spark-{{ version }}-bin-hadoop{{ hadoop_version }}.tgz
   sha256: {{ sha256 }}
+  patches:
+    - setup.py.patch
 
 build:
   number: 1
   script: >
     cd python &&
     python setup.py install --single-version-externally-managed --record=record.txt &&
-    cd .. &&
-    cp -r sbin $PREFIX/sbin
     
 
 requirements:
