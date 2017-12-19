@@ -1,19 +1,20 @@
 {% set name = "pyspark" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "9dc994118608ce12939d86dec27ce8a545cc6e6a4d76bca785a37322daa33a3c" %}
+{% set version = "2.2.1" %}
+{% set hadoop_version = "2.7" %}
+{% set sha256 = "79fb8285546670923a66082324bf56e99a7201476a52dea908804ddfa04f16c8" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: jupyterhub-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/p/pyspark/pyspark-{{ version }}.post0.tar.gz
+  url: http://apache.mirrors.hoobly.com/spark/spark-{{ version }}/spark-{{ version }}-bin-hadoop{{ hadoop_version }}.tgz
   sha256: {{ sha256 }}
 
 build:
   number: 0
-  script:
+  script: >
+    cd python &&
     python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -44,8 +45,7 @@ test:
 about:
   home: http://spark.apache.org/
   license: Apache 2.0
-  # Not available in the 2.2.0 pypi release
-  # license_file: LICENSE
+  license_file: LICENSE
   summary: 'Apache Spark'
   description: Apache Spark is a fast and general engine for large-scale data processing.
 
