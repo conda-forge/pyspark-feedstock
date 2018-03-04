@@ -1,7 +1,7 @@
 {% set name = "pyspark" %}
-{% set version = "2.2.1" %}
+{% set version = "2.3.0" %}
 {% set hadoop_version = "2.7" %}
-{% set sha256 = "79fb8285546670923a66082324bf56e99a7201476a52dea908804ddfa04f16c8" %}
+{% set sha256 = "5cfbc77d140454c895f2d8125c0a751465f53cbe12720da763b1785d25c63f05" %}
 
 package:
   name: {{ name }}
