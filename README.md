@@ -14,14 +14,16 @@ Apache Spark is a fast and general engine for large-scale data processing.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyspark-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pyspark-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyspark-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyspark-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pyspark-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pyspark-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/pyspark-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/pyspark-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/pyspark-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/pyspark-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/pyspark-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/pyspark-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyspark/badges/version.svg)](https://anaconda.org/conda-forge/pyspark)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyspark/badges/downloads.svg)](https://anaconda.org/conda-forge/pyspark)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pyspark-green.svg)](https://anaconda.org/conda-forge/pyspark) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyspark.svg)](https://anaconda.org/conda-forge/pyspark) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyspark.svg)](https://anaconda.org/conda-forge/pyspark) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyspark.svg)](https://anaconda.org/conda-forge/pyspark) |
 
 Installing pyspark
 ==================
