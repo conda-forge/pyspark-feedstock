@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: >
     cd python &&
     python setup.py install --single-version-externally-managed --record=record.txt
@@ -28,7 +28,7 @@ requirements:
     - python
     - numpy >=1.7
     - pandas >=0.13.0
-    - py4j 0.10.6
+    - py4j 0.10.7
 
 test:
   imports:
