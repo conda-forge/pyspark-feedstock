@@ -44,7 +44,7 @@ about:
   home: http://spark.apache.org/
   license: Apache 2.0
   # Not yet available in the pypi release
-  # license_file: LICENSE
+  license_file: LICENSE
   summary: 'Apache Spark'
   description: Apache Spark is a fast and general engine for large-scale data processing.
 
