@@ -29,6 +29,9 @@ requirements:
     - python
 
 test:
+  commands:
+    - bash -c "compgen -c spark && compgen -c pyspark"  # [not win]
+    - where *spark*                                     # [win]
   imports:
     - pyspark
     - pyspark.ml
