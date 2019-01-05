@@ -1,0 +1,11 @@
+--- work/python/setup.py.orig	2018-06-01 15:49:09.000000000 -0500
++++ work/python/setup.py	2018-08-03 12:16:51.266816200 -0500
+@@ -88,6 +88,8 @@
+ 
+ def _supports_symlinks():
+     """Check if the system supports symlinks (e.g. *nix) or not."""
++    if sys.platform == 'win32':
++        return False
+     return getattr(os, "symlink", None) is not None
+ 
+ 
