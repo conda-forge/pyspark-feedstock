@@ -112,6 +112,7 @@ Feedstock Maintainers
 
 * [@dbast](https://github.com/dbast/)
 * [@ericdill](https://github.com/ericdill/)
+* [@mariusvniekerk](https://github.com/mariusvniekerk/)
 * [@parente](https://github.com/parente/)
 * [@quasiben](https://github.com/quasiben/)
 
