@@ -20,13 +20,13 @@ requirements:
   host:
     - pip
     - pypandoc
-    - python
+    - python <3.8
     - setuptools
   run:
     - numpy >=1.7
     - pandas >=0.19.2
     - py4j ==0.10.7
-    - python
+    - python <3.8
 
 test:
   commands:
