@@ -45,7 +45,7 @@ test:
 
 about:
   home: http://spark.apache.org/
-  license: Apache 2.0
+  license: Apache-2.0
   # Not yet available in the pypi release
   license_file: {{ environ["RECIPE_DIR"] }}/LICENSE.txt
   summary: Apache Spark
