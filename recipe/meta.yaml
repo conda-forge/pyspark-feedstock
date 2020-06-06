@@ -30,6 +30,7 @@ requirements:
 
 test:
   commands:
+    - pip check
     - bash -c "compgen -c spark && compgen -c pyspark"  # [not win]
     - where *spark*                                     # [win]
   imports:
@@ -42,6 +43,8 @@ test:
     - pyspark.mllib.stat
     - pyspark.sql
     - pyspark.streaming
+  requires:
+    - pip
 
 about:
   home: http://spark.apache.org/
