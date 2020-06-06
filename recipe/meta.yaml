@@ -1,20 +1,20 @@
 {% set name = "pyspark" %}
-{% set version = "2.4.5" %}
+{% set version = "2.4.6" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0deed5687828efdaf4091e748f0ba1ae8aad6e4c3a5f07aa07e19487397e0e07
+  sha256: b4b319a3ffd187a3019f654ae1c8ac38048bcec2940f8cecdef829302d166feb
   patches:
     - 0001-Disable-symlinks-on-Windows.patch
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
@@ -30,6 +30,7 @@ requirements:
 
 test:
   commands:
+    - pip check
     - bash -c "compgen -c spark && compgen -c pyspark"  # [not win]
     - where *spark*                                     # [win]
   imports:
@@ -42,13 +43,15 @@ test:
     - pyspark.mllib.stat
     - pyspark.sql
     - pyspark.streaming
+  requires:
+    - pip
 
 about:
   home: http://spark.apache.org/
-  license: Apache 2.0
+  license: Apache-2.0
   # Not yet available in the pypi release
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE.txt'
-  summary: 'Apache Spark'
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE.txt
+  summary: Apache Spark
   description: Apache Spark is a fast and general engine for large-scale data processing.
 
 extra:
