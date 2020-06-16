@@ -1,5 +1,5 @@
 {% set name = "pyspark" %}
-{% set version = "2.4.6" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b4b319a3ffd187a3019f654ae1c8ac38048bcec2940f8cecdef829302d166feb
+  sha256: 8c6e5cc51d91eb8d43e81d0b7093292b5e144ac81445491d5f887d2cf4fe121f
   patches:
     - 0001-Disable-symlinks-on-Windows.patch
 
@@ -19,14 +19,14 @@ build:
 requirements:
   host:
     - pip
-    - pypandoc
-    - python <3.8
+    - python
     - setuptools
   run:
     - numpy >=1.7
-    - pandas >=0.19.2
-    - py4j ==0.10.7
-    - python <3.8
+    - pandas >=0.23.2
+    - py4j ==0.10.9
+    - pyarrow >=0.15.1
+    - python
 
 test:
   commands:

@@ -3,7 +3,7 @@ About pyspark
 
 Home: http://spark.apache.org/
 
-Package license: Apache 2.0
+Package license: Apache-2.0
 
 Feedstock license: BSD 3-Clause
 
