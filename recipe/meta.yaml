@@ -19,14 +19,14 @@ build:
 requirements:
   host:
     - pip
-    - pypandoc
-    - python <3.8
+    - python
     - setuptools
   run:
     - numpy >=1.7
-    - pandas >=0.19.2
-    - py4j ==0.10.7
-    - python <3.8
+    - pandas >=0.23.2
+    - py4j ==0.10.9
+    - pyarrow >=0.15.1
+    - python
 
 test:
   commands:
