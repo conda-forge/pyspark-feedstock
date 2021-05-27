@@ -1,5 +1,5 @@
 {% set name = "pyspark" %}
-{% set version = "3.1.1" %}
+{% set version = "3.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 104abc146d4ffb72d4c683d25d7af5a6bf955d94590a76f542ee23185670aa7e
+  sha256: 5e25ebb18756e9715f4d26848cc7e558035025da74b4fc325a0ebc05ff538e65
   patches:
     - 0001-Disable-symlinks-on-Windows.patch
 
