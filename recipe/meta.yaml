@@ -30,7 +30,7 @@ requirements:
   run:
     - numpy >=1.7
     - pandas >=0.23.2
-    - py4j ==0.10.9
+    - py4j ==0.10.9.2
     - pyarrow >=1.0.0
     - python
 
@@ -61,6 +61,7 @@ about:
   summary: Apache Spark
   description: Apache Spark is a fast and general engine for large-scale data processing.
   dev_url: https://github.com/apache/spark/tree/master/python
+  doc_url: https://spark.apache.org/documentation.html
 
 extra:
   recipe-maintainers:
