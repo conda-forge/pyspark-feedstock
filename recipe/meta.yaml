@@ -12,21 +12,27 @@ source:
     - 0001-Disable-symlinks-on-Windows.patch
 
 build:
+  skip: True  # [py<36]
   noarch: python
   number: 0
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
+  build:
+    - git
+    - patch  # [not win]
+    - m2-patch  # [win]
   host:
     - pip
     - python
     - setuptools
+    - wheel
   run:
     - numpy >=1.7
     - pandas >=0.23.2
     - py4j ==0.10.9
-    - pyarrow >=0.15.1
-    - python >=2.7
+    - pyarrow >=1.0.0
+    - python
 
 test:
   commands:
@@ -49,10 +55,12 @@ test:
 about:
   home: http://spark.apache.org/
   license: Apache-2.0
+  license_family: Apache
   # Not yet available in the pypi release
   license_file: {{ environ["RECIPE_DIR"] }}/LICENSE.txt
   summary: Apache Spark
   description: Apache Spark is a fast and general engine for large-scale data processing.
+  dev_url: https://github.com/apache/spark/tree/master/python
 
 extra:
   recipe-maintainers:
