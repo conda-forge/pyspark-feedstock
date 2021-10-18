@@ -1,13 +1,12 @@
-{% set name = "pyspark" %}
-{% set version = "3.1.2" %}
+{% set version = "3.2.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: pyspark
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5e25ebb18756e9715f4d26848cc7e558035025da74b4fc325a0ebc05ff538e65
+  url: https://github.com/apache/spark/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 184bd93ccbc94adcac6caf6df839ff86336b2046723235e5c41137cb0ae738d9
   patches:
     - 0001-Disable-symlinks-on-Windows.patch
 
@@ -22,10 +21,10 @@ requirements:
     - python
     - setuptools
   run:
-    - numpy >=1.7
+    - numpy >=1.14
     - pandas >=0.23.2
     - py4j ==0.10.9
-    - pyarrow >=0.15.1
+    - pyarrow >=1.0.0
     - python >=3.6
 
 test:
