@@ -5,16 +5,15 @@ package:
   version: {{ version }}
 
 source:
-  # PyPI has had issues recently with timely releases due to size constraints of tarball;
-  # Building from source runs into StackOverflow errors in CF CI; --> use upstream binary
-  url: https://dist.apache.org/repos/dist/release/spark/spark-{{ version }}/pyspark-{{ version }}.tar.gz
-  sha256: 7ebe8e9505647b4d124d5a82fca60dfd3891021cf8ad6c5ec88777eeece92cf7
+  url: https://github.com/apache/spark/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 26a0ea94a37985cb267ac3cbbff51ba1c4ebd76b66e1311d38b5e32745a16860
   patches:
     - 0001-Disable-symlinks-on-Windows.patch
+    - 0001-add-all-sbin-scripts-to-the-python-package.patch
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:

@@ -1,0 +1,28 @@
+From 9c962dc66cbf93719d83d13853d1ffdb86298d7b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Florian=20R=2E=20H=C3=B6lzlwimmer?=
+ <git.ich@frhoelzlwimmer.de>
+Date: Tue, 19 Jul 2022 15:20:37 +0200
+Subject: [PATCH] add all sbin scripts to the python package
+
+---
+ python/setup.py | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/python/setup.py b/python/setup.py
+index 061dc9d..4b1f18a 100755
+--- a/python/setup.py
++++ b/python/setup.py
+@@ -248,9 +248,7 @@ try:
+         package_data={
+             'pyspark.jars': ['*.jar'],
+             'pyspark.bin': ['*'],
+-            'pyspark.sbin': ['spark-config.sh', 'spark-daemon.sh',
+-                             'start-history-server.sh',
+-                             'stop-history-server.sh', ],
++            'pyspark.sbin': ['*'],
+             'pyspark.python.lib': ['*.zip'],
+             'pyspark.data': ['*.txt', '*.data'],
+             'pyspark.licenses': ['*.txt'],
+-- 
+2.37.1
+
