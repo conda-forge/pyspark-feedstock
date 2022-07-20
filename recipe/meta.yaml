@@ -1,4 +1,4 @@
-{% set version = "3.3.0" %}
+{% set version = "3.2.2" %}
 
 package:
   name: pyspark
@@ -8,7 +8,7 @@ source:
   # PyPI has had issues recently with timely releases due to size constraints of tarball;
   # Building from source runs into StackOverflow errors in CF CI; --> use upstream binary
   url: https://dist.apache.org/repos/dist/release/spark/spark-{{ version }}/pyspark-{{ version }}.tar.gz
-  sha256: 7ebe8e9505647b4d124d5a82fca60dfd3891021cf8ad6c5ec88777eeece92cf7
+  sha256: 5455214cf0b83d4a184cda25ca3b0812481915353b180cf7d7ac227728a4d99e
   patches:
     - 0001-Disable-symlinks-on-Windows.patch
 
@@ -23,7 +23,7 @@ requirements:
     - python >=3.7
     - setuptools
   run:
-    - numpy >=1.15
+    - numpy >=1.14
     - pandas >=1.0.5
     - py4j ==0.10.9.5
     - pyarrow >=1.0.0
