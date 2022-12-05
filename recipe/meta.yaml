@@ -1,5 +1,5 @@
 {% set name = "pyspark" %}
-{% set version = "3.1.2" %}
+{% set version = "3.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5e25ebb18756e9715f4d26848cc7e558035025da74b4fc325a0ebc05ff538e65
+  sha256: 0b81359262ec6e9ac78c353344e7de026027d140c6def949ff0d80ab70f89a54
   patches:
     - 0001-Disable-symlinks-on-Windows.patch
 
 build:
-  skip: True  # [py<36]
-  noarch: python
   number: 0
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  # pyarrow isn't available on s390x
+  skip: True  # [py<36 or s390x]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   build:
-    - git
-    - patch  # [not win]
+    - patch     # [not win]
     - m2-patch  # [win]
   host:
     - pip
@@ -28,34 +27,57 @@ requirements:
     - setuptools
     - wheel
   run:
-    - numpy >=1.7
-    - pandas >=0.23.2
-    - py4j ==0.10.9.2
-    - pyarrow >=1.0.0
     - python
+    - py4j ==0.10.9.3
+    # extras_require dependencies
+    - numpy >=1.14
+    - pandas >=0.23.2
+    - pyarrow >=1.0.0
 
 test:
-  commands:
-    - bash -c "compgen -c spark && compgen -c pyspark"  # [not win]
-    - where *spark*                                     # [win]
   imports:
     - pyspark
+    - pyspark.cloudpickle
     - pyspark.ml
     - pyspark.ml.linalg
     - pyspark.ml.param
     - pyspark.mllib
     - pyspark.mllib.linalg
     - pyspark.mllib.stat
+    - pyspark.pandas
+    - pyspark.pandas.data_type_ops
+    - pyspark.pandas.indexes
+    - pyspark.pandas.missing
+    - pyspark.pandas.plot
+    - pyspark.pandas.spark
+    - pyspark.pandas.typedef
+    - pyspark.pandas.usage_logging
+    - pyspark.python.pyspark
+    - pyspark.python.lib
     - pyspark.sql
+    - pyspark.sql.avro
+    - pyspark.sql.pandas
     - pyspark.streaming
+    - pyspark.bin
+    - pyspark.sbin
+    - pyspark.jars
+    - pyspark.data
+    - pyspark.licenses
+    - pyspark.resource
+  requires:
+    - pip
+  commands:
+    - pip check
+    - bash -c "compgen -c spark && compgen -c pyspark"  # [not win]
+    - where *spark*                                     # [win]
 
 about:
-  home: http://spark.apache.org/
+  home: https://spark.apache.org/
   license: Apache-2.0
   license_family: Apache
   # Not yet available in the pypi release
-  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE.txt
-  summary: Apache Spark
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  summary: Apache Spark Python API
   description: Apache Spark is a fast and general engine for large-scale data processing.
   dev_url: https://github.com/apache/spark/tree/master/python
   doc_url: https://spark.apache.org/documentation.html
