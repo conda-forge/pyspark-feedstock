@@ -23,7 +23,7 @@ requirements:
   run:
     - numpy >=1.15
     - pandas >=1.0.5
-    - py4j ==0.10.9.5
+    - py4j ==0.10.9.7
     - pyarrow >=1.0.0
     - python >=3.7
 
