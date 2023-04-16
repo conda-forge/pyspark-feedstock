@@ -9,8 +9,6 @@ source:
   # Building from source runs into StackOverflow errors in CF CI; --> use upstream binary
   url: https://dist.apache.org/repos/dist/release/spark/spark-{{ version }}/pyspark-{{ version }}.tar.gz
   sha256: 167a23e11854adb37f8602de6fcc3a4f96fd5f1e323b9bb83325f38408c5aafd
-  patches:
-    - 0001-Disable-symlinks-on-Windows.patch
 
 build:
   noarch: python
