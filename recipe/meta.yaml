@@ -23,11 +23,11 @@ requirements:
     - wheel
   run:
     - python
-    - py4j ==0.10.9.3
+    - py4j ==0.10.9.7
     # extras_require dependencies
-    - numpy >=1.14
-    - pandas >=0.23.2
-    - pyarrow >=1.0.0
+    - numpy >=1.15
+    - pandas >=1.0.5
+    - pyarrow >=4.0.0
 
 test:
   imports:
