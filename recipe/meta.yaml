@@ -1,5 +1,5 @@
 {% set name = "pyspark" %}
-{% set version = "3.2.1" %}
+{% set version = "3.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0b81359262ec6e9ac78c353344e7de026027d140c6def949ff0d80ab70f89a54
-  patches:
-    - 0001-Disable-symlinks-on-Windows.patch
+  sha256: 72cd66ab8cf61a75854e5a753f75bea35ee075c3a96f9de4e2a66d02ec7fc652
 
 build:
   number: 0
   # pyarrow isn't available on s390x.
-  skip: True  # [py<36 or s390x]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+  skip: True  # [py<38 or s390x]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 
 requirements:
-  build:
-    - patch     # [not win]
-    - m2-patch  # [win]
   host:
     - pip
     - python
@@ -28,10 +23,10 @@ requirements:
     - wheel
   run:
     - python
-    - py4j ==0.10.9.3
+    - py4j ==0.10.9.7
     # extras_require dependencies
-    - numpy >=1.14
-    - pandas >=0.23.2
+    - numpy >=1.15
+    - pandas >=1.0.5
     - pyarrow >=1.0.0
 
 test:
