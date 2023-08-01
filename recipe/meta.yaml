@@ -14,7 +14,7 @@ source:
 build:
   number: 0
   # pyarrow isn't available on s390x.
-  skip: True  # [py<36 or s390x]
+  skip: True  # [py<38 or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
