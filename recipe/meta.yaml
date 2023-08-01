@@ -27,7 +27,7 @@ requirements:
     # extras_require dependencies
     - numpy >=1.15
     - pandas >=1.0.5
-    - pyarrow >=4.0.0
+    - pyarrow >=1.0.0
 
 test:
   imports:
