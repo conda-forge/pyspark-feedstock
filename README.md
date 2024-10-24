@@ -145,7 +145,9 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@codesorcery](https://github.com/codesorcery/)
 * [@dbast](https://github.com/dbast/)
+* [@h-vetinari](https://github.com/h-vetinari/)
 * [@mariusvniekerk](https://github.com/mariusvniekerk/)
 * [@parente](https://github.com/parente/)
 * [@quasiben](https://github.com/quasiben/)
