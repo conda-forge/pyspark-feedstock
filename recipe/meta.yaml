@@ -31,6 +31,7 @@ requirements:
     - numpy >=1.15,<2
     - pandas >=1.0.5
     - pyarrow >=4.0.0
+  run_constrained:
     - grpcio >=1.56.0
     - grpcio-status >=1.56.0
     - googleapis-common-protos >=1.56.4
