@@ -27,11 +27,15 @@ requirements:
   run:
     - python
     - py4j ==0.10.9.7
-    # extras_require dependencies
+    # extras_require dependencies are kept here
+    # as runtime dependencies because previously
+    # were set as such
     - numpy >=1.15,<2
     - pandas >=1.0.5
     - pyarrow >=4.0.0
   run_constrained:
+    # We haven't previously included the "connect" extras, 
+    # so we can keep these in run_constrained.
     - grpcio >=1.56.0
     - grpcio-status >=1.56.0
     - googleapis-common-protos >=1.56.4
@@ -50,6 +54,7 @@ test:
     - pyspark.ml.torch
     - pyspark.ml.deepspeed
     - pyspark.sql
+    # imports relative to connect are removed because is an extra
     - pyspark.sql.avro
     - pyspark.sql.pandas
     - pyspark.sql.protobuf
