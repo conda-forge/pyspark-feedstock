@@ -1,13 +1,16 @@
 {% set name = "pyspark" %}
-{% set version = "3.4.1" %}
+{% set version = "3.5.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 72cd66ab8cf61a75854e5a753f75bea35ee075c3a96f9de4e2a66d02ec7fc652
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 68b7cc0c0c570a7d8644f49f40d2da8709b01d30c9126cc8cf93b4f84f3d9747
+  # get the LICENSE from the GH repo
+  - url: https://raw.githubusercontent.com/apache/spark/refs/tags/v{{ version }}/LICENSE
+    sha256: 80209caf5bfbc82ad9163d9a42d7be5cbdcbf26e4e2b13666cdc11e4729ab50d
 
 build:
   number: 0
@@ -24,21 +27,42 @@ requirements:
   run:
     - python
     - py4j ==0.10.9.7
-    # extras_require dependencies
-    - numpy >=1.15
+    # extras_require dependencies are kept here
+    # as runtime dependencies because previously
+    # were set as such
+    - numpy >=1.15,<2
     - pandas >=1.0.5
-    - pyarrow >=1.0.0
+    - pyarrow >=4.0.0
+  run_constrained:
+    # We haven't previously included the "connect" extras, 
+    # so we can keep these in run_constrained.
+    - grpcio >=1.56.0
+    - grpcio-status >=1.56.0
+    - googleapis-common-protos >=1.56.4
 
 test:
   imports:
     - pyspark
     - pyspark.cloudpickle
+    - pyspark.mllib
+    - pyspark.ml.connect
+    - pyspark.mllib.linalg
+    - pyspark.mllib.stat
     - pyspark.ml
     - pyspark.ml.linalg
     - pyspark.ml.param
-    - pyspark.mllib
-    - pyspark.mllib.linalg
-    - pyspark.mllib.stat
+    - pyspark.ml.torch
+    - pyspark.ml.deepspeed
+    - pyspark.sql
+    # imports relative to connect are removed because is an extra
+    - pyspark.sql.avro
+    - pyspark.sql.pandas
+    - pyspark.sql.protobuf
+    - pyspark.sql.streaming
+    - pyspark.streaming
+    - pyspark.bin
+    - pyspark.sbin
+    - pyspark.jars
     - pyspark.pandas
     - pyspark.pandas.data_type_ops
     - pyspark.pandas.indexes
@@ -49,16 +73,13 @@ test:
     - pyspark.pandas.usage_logging
     - pyspark.python.pyspark
     - pyspark.python.lib
-    - pyspark.sql
-    - pyspark.sql.avro
-    - pyspark.sql.pandas
-    - pyspark.streaming
-    - pyspark.bin
-    - pyspark.sbin
-    - pyspark.jars
+    - pyspark.testing
     - pyspark.data
     - pyspark.licenses
     - pyspark.resource
+    - pyspark.errors
+    - pyspark.errors.exceptions
+    - pyspark.examples.src.main.python
   requires:
     - pip
   commands:
@@ -70,8 +91,7 @@ about:
   home: https://spark.apache.org/
   license: Apache-2.0
   license_family: Apache
-  # Not yet available in the pypi release
-  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  license_file: LICENSE
   summary: Apache Spark Python API
   description: Apache Spark is a fast and general engine for large-scale data processing.
   dev_url: https://github.com/apache/spark/tree/master/python
