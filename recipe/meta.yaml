@@ -1,5 +1,5 @@
 {% set name = "pyspark" %}
-{% set version = "3.5.3" %}
+{% set version = "3.5.4" %}
 
 package:
   name: {{ name|lower }}
