@@ -10,7 +10,7 @@ source:
     sha256: 1c2926d63020902163f58222466adf6f8016f6c43c1f319b8e7a71dbaa05fc51
   # get the LICENSE from the GH repo
   - url: https://raw.githubusercontent.com/apache/spark/refs/tags/v{{ version }}/LICENSE
-    sha256: 58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd
+    sha256: 80209caf5bfbc82ad9163d9a42d7be5cbdcbf26e4e2b13666cdc11e4729ab50d
 
 build:
   number: 0
