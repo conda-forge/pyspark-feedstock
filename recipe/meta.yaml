@@ -13,7 +13,7 @@ source:
     sha256: 80209caf5bfbc82ad9163d9a42d7be5cbdcbf26e4e2b13666cdc11e4729ab50d
 
 build:
-  number: 0
+  number: 1
   # pyarrow isn't available on s390x.
   skip: True  # [py<38 or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
