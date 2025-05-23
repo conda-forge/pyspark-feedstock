@@ -1,4 +1,4 @@
-{% set version = "3.5.5" %}
+{% set version = "4.0.0" %}
 
 package:
   name: pyspark
@@ -8,7 +8,7 @@ source:
   # PyPI has had issues recently with timely releases due to size constraints of tarball;
   # Building from source runs into StackOverflow errors in CF CI; --> use upstream binary
   url: https://dist.apache.org/repos/dist/release/spark/spark-{{ version }}/pyspark-{{ version }}.tar.gz
-  sha256: 6effc9ce98edf231f4d683fd14f7270629bf8458c628d6a2620ded4bb34f3cb9
+  sha256: 38db1b4f6095a080d7605e578d775528990e66dc326311d93e94a71cfc24e5a5
 
 build:
   noarch: python
