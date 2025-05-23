@@ -21,10 +21,10 @@ requirements:
     - python {{ python_min }}
     - setuptools
   run:
-    - numpy >=1.15,<2
-    - pandas >=1.0.5
-    - py4j ==0.10.9.7
-    - pyarrow >=4.0.0
+    - numpy >=1.21
+    - pandas >=2.0.0
+    - py4j ==0.10.9.9
+    - pyarrow >=11.0.0
     - python >={{ python_min }}
 
 test:
