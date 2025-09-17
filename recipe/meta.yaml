@@ -1,5 +1,5 @@
 {% set name = "pyspark" %}
-{% set version = "4.0.0" %}
+{% set version = "4.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 38db1b4f6095a080d7605e578d775528990e66dc326311d93e94a71cfc24e5a5
+    sha256: 9d1f22d994f60369228397e3479003ffe2dd736ba79165003246ff7bd48e2c73
   # get the LICENSE from the GH repo
   - url: https://raw.githubusercontent.com/apache/spark/refs/tags/v{{ version }}/LICENSE
     sha256: c2adf48f12e044a7755b0a12d6c9679b394d3e345934cd668db7c13a9eb22ff1
@@ -26,7 +26,7 @@ requirements:
     - wheel
   run:
     - python
-    - py4j ==0.10.9.7
+    - py4j ==0.10.9.9
     # extras_require dependencies are kept here
     # as runtime dependencies because previously
     # were set as such
