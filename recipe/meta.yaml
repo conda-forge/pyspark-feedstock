@@ -10,12 +10,12 @@ source:
     sha256: 38db1b4f6095a080d7605e578d775528990e66dc326311d93e94a71cfc24e5a5
   # get the LICENSE from the GH repo
   - url: https://raw.githubusercontent.com/apache/spark/refs/tags/v{{ version }}/LICENSE
-    sha256: 80209caf5bfbc82ad9163d9a42d7be5cbdcbf26e4e2b13666cdc11e4729ab50d
+    sha256: c2adf48f12e044a7755b0a12d6c9679b394d3e345934cd668db7c13a9eb22ff1
 
 build:
   number: 0
   # pyarrow isn't available on s390x.
-  skip: True  # [py<38 or s390x]
+  skip: True  # [py<39 or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 
 requirements:
@@ -25,14 +25,20 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python >=3.8
-    - py4j ==0.10.9.9
+    - python
+    - py4j ==0.10.9.7
+    # extras_require dependencies are kept here
+    # as runtime dependencies because previously
+    # were set as such
     - numpy >=1.21
     - pandas >=2.0.0
     - pyarrow >=11.0.0
-    - grpcio >=1.56.0
-    - grpcio-status >=1.56.0
-    - googleapis-common-protos >=1.56.4
+  run_constrained:
+    # We haven't previously included the "connect" extras, 
+    # so we can keep these in run_constrained.
+    - grpcio >=1.67.0
+    - grpcio-status >=1.67.0
+    - googleapis-common-protos >=1.65.0
 
 test:
   imports:
