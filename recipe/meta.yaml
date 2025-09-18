@@ -8,7 +8,7 @@ package:
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: 9d1f22d994f60369228397e3479003ffe2dd736ba79165003246ff7bd48e2c73
-  # get the LICENSE from the GH repo
+  # get LICENSE from the GH repo
   - url: https://raw.githubusercontent.com/apache/spark/refs/tags/v{{ version }}/LICENSE
     sha256: c2adf48f12e044a7755b0a12d6c9679b394d3e345934cd668db7c13a9eb22ff1
 
