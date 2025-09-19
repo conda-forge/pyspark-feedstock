@@ -45,7 +45,7 @@ test:
     - pyspark
     - pyspark.cloudpickle
     - pyspark.mllib
-    - pyspark.ml.connect
+    # pyspark.ml.connect requires optional "connect" extras (gRPC)
     - pyspark.mllib.linalg
     - pyspark.mllib.stat
     - pyspark.ml
