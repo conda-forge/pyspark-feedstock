@@ -22,7 +22,7 @@ requirements:
     - setuptools
   run:
     - numpy >=1.21
-    - pandas >=2.2.0
+    - pandas >=2.2.0,<3.0.0 
     - py4j >=0.10.9.7,<0.10.9.10
     - pyarrow >=18.0.0
     - python >={{ python_min }}
